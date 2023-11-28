@@ -42,7 +42,10 @@ We would be using the buildkite monorepo-diff plugin, it will assist in triggeri
 
 The user has to explictly state the paths they want to monitor. For example if a user specifies `app/` as the path and changes are made to `app/bin` it will not trigger the config because the subfolder was not specified.
 
+
+**Example 1**
 <br/>
+
 When changes are detected in these paths of the monorepo, it will triggers the other pipelines `test-pipeline` and `data-generator`
 
 ```yaml
@@ -52,10 +55,10 @@ steps:
       - buildkite-plugins/monorepo-diff#v1.0.1:
           diff: "git diff --name-only HEAD~1"
           watch:
-            - path: "app/"
+            - path: app/
               config:
                 trigger: "app-deploy"
-            - path: "test/bin/"
+            - path: test/bin/
               config:
                 command: "echo Make Changes to Bin"
 ```
@@ -63,8 +66,9 @@ steps:
 See [**How to set up Continuous Integration for monorepo using Buildkite**](https://adikari.medium.com/set-up-continuous-integration-for-monorepo-using-buildkite-61539bb0ed76) for step-by-step instructions on how to get this running, or click the Add to Buildkite to start
 
 
- **Example**
+ **Example 2**
     <br/>
+    
     When changes are detected in these paths of the monorepo, it triggers the other pipelines `test-pipeline` if changes are made to `test/.buildkite/` and `data-generator` if changes are made to either `app/` or `app/bin/service/`
 
     ```yaml
@@ -89,6 +93,9 @@ See [**How to set up Continuous Integration for monorepo using Buildkite**](http
       
 - [Command](https://buildkite.com/docs/pipelines/command-step)
 - [Trigger](https://buildkite.com/docs/pipelines/trigger-step)
+
+
+
 
 ## License
 
