@@ -1,4 +1,4 @@
-# buildkite-docker-example
+# buildkite-monorepo-example
 
 The monorepo, serves as a unified, version-controlled repository that houses multiple independent projects, giving you flexibility, easy management, and a simpler way to keep track of changes and dependencies across different repositories.
 
@@ -8,11 +8,13 @@ Keep an eye on and manage the whole codebase without jumping between different p
 
 
 ## How to use
-Webhooks
+
 Folders/SubFolders
 monorepo-diff Plugin
+#### Webhooks
 
-### monorepo-diff-buildkite-plugin
+Configure webhooks on Github Settings 
+#### monorepo-diff-buildkite-plugin
 
 This plugin will assist you in triggering pipelines by watching folders in your `monorepo`.
 
