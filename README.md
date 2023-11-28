@@ -16,7 +16,7 @@ The monorepo, serves as a unified, version-controlled repository that houses mul
 
 Create Folders and/or Sub folders in the repository to watch, we have app/ and test/ folders in this repository. 
 
-
+```
 ├── src
 │   ├── controller
 │   │   ├── **/*.css
@@ -35,9 +35,11 @@ Create Folders and/or Sub folders in the repository to watch, we have app/ and t
 ├── package-lock.json 
 └── .gitignore
 
+```
+
 #### Webhooks
 
-Configure Webhooks in the Github Repository settings for your pipeline to subscribe to Pushes, Deployemnts and Pull Requests events. You must be a repository owner or have admin access in the repository to create webhooks.
+Configure Webhooks in the Github Repository settings for your pipeline to subscribe to `Pushes`, `Deployements` and `Pull Requests` events. You must be a repository owner or have admin access in the repository to create webhooks.
 
 
 
