@@ -12,6 +12,7 @@ The monorepo, serves as a unified, version-controlled repository that houses mul
 
 
 <br/>  
+
 ## User Manual
 
 Create Folders and/or Sub folders in the repository to watch, we have `app/` and `test/` folders in this repository. 
@@ -40,13 +41,19 @@ Configure Webhooks in the Github Repository settings for your pipeline to subscr
 #### monorepo-diff-buildkite-plugin
 We would be using the buildkite monorepo-diff plugin, it will assist in triggering pipelines by watching folders in the `monorepo`.
 
+The configuration supports running [Command](https://buildkite.com/docs/pipelines/command-step) or [Triggering](https://buildkite.com/docs/pipelines/trigger-step)
+
 The user has to explictly state the paths they want to monitor. For example if a user specifies `app/` as the path and changes are made to `app/bin` it will not trigger the config because the subfolder was not specified.
 
+
+<br/>
 
 **Example 1**
 <br/>
 
-When changes are detected in these paths of the monorepo, it will triggers the other pipelines `test-pipeline` and `data-generator`
+When changes are detected in these paths of the monorepo, it will triggers the other pipeline `test-pipeline` and `data-generator`
+* Changes to the path `app/` triggers the the pipeline `app-deploy`
+* Changes to the path `test/bin` will run the respectively config command
 
 ```yaml
 steps:
@@ -63,15 +70,18 @@ steps:
                 command: "echo Make Changes to Bin"
 ```
 
-See [**How to set up Continuous Integration for monorepo using Buildkite**](https://adikari.medium.com/set-up-continuous-integration-for-monorepo-using-buildkite-61539bb0ed76) for step-by-step instructions on how to get this running, or click the Add to Buildkite to start
+See [**How to set up Continuous Integration for monorepo using Buildkite**](https://adikari.medium.com/set-up-continuous-integration-for-monorepo-using-buildkite-61539bb0ed76) for step-by-step instructions on how to get this running
 
+
+<br/>
 
  **Example 2**
-    <br/>
+ <br/>
     
-    When changes are detected in these paths of the monorepo, it triggers the other pipelines `test-pipeline` if changes are made to `test/.buildkite/` and `data-generator` if changes are made to either `app/` or `app/bin/service/`
+* When changes are detected in the path `test/.buildkite/`  it triggers the the pipeline `test-pipeline`
+* If the changes are made to either `app/` or `app/bin/service/` it triggers `data-generator`
 
-    ```yaml
+```yaml
     steps:
       - label: "Triggering pipelines with plugin"
         plugins:
@@ -89,11 +99,8 @@ See [**How to set up Continuous Integration for monorepo using Buildkite**](http
                     build:
                       meta_data:
                         release-version: "1.1"
-    ```
-      
-- [Command](https://buildkite.com/docs/pipelines/command-step)
-- [Trigger](https://buildkite.com/docs/pipelines/trigger-step)
-
+```
+    
 
 
 
