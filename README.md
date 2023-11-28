@@ -1,4 +1,5 @@
-# buildkite-monorepo-example
+# Buildkite-Monorepo-Example
+
 
 
 [![Add to Buildkite](https://buildkite.com/button.svg)](https://buildkite.com/new)
@@ -10,12 +11,29 @@ The monorepo, serves as a unified, version-controlled repository that houses mul
 * Easily maintain and monitor the code
 
 
-  
+<br/>  
 ## User Manual
 
 Create Folders and/or Sub folders in the repository to watch, we have app/ and test/ folders in this repository. 
 
 
+├── src
+│   ├── controller
+│   │   ├── **/*.css
+│   ├── views
+│   ├── model
+│   ├── index.js
+├── public
+│   ├── css
+│   │   ├── **/*.css
+│   ├── images
+│   ├── js
+│   ├── index.html
+├── dist (or build
+├── node_modules
+├── package.json
+├── package-lock.json 
+└── .gitignore
 
 #### Webhooks
 
