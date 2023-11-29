@@ -76,7 +76,7 @@ The  [**monorepo-diff buildkite plugin**](https://github.com/buildkite-plugins/m
   **Example 2**
   <br/>
      
- .buildkite/pipeline.yml
+ ```.buildkite/pipeline.yml```
  ```yaml
      steps:
        - label: "Triggering pipelines with plugin"
